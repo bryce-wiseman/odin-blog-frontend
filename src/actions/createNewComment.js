@@ -1,10 +1,11 @@
 
 export default async function createNewComment(formData) {
+    let envURL = import.meta.env.VITE_DB_URL
     let user = formData.get('username')
     let comment = formData.get('comment-input')
     let postID = formData.get('postID')
 
-    let URL = "http://localhost:5432/api/new-comment/"
+    let URL = envURL + "/new-comment/"
     try {
         let createComment = await fetch(URL, {
             method: "POST",

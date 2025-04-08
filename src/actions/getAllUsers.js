@@ -1,7 +1,8 @@
 
 
 export default async function getAllUsers() {
-    let URL = "http://localhost:5432/api/users/"
+  let envURL = import.meta.env.VITE_DB_URL
+    let URL = envURL + "/users/"
     try {
         let allUsers = await fetch(URL)
         if(!allUsers) {

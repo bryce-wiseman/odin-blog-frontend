@@ -1,6 +1,7 @@
 
 export default async function getAllComments() {
-    let URL = "http://localhost:5432/api/comments"
+  let envURL = import.meta.env.VITE_DB_URL
+    let URL = envURL + "/comments"
     try {
         let comments = await fetch(URL, {
           method: "GET",

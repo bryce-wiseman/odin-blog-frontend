@@ -1,5 +1,6 @@
 export default async function getAuthor(idNum) {
-    let URL = "http://localhost:5432/users/" + idNum
+  let envURL = import.meta.env.VITE_DB_URL
+    let URL = envURL + "/users/" + idNum
     try {
         let findUser = await fetch(URL)
         if(!findUser) {

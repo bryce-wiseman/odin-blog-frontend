@@ -1,10 +1,12 @@
 import getCurrentData from "./getCurrentData.js"
 
 export default async function (formData) {
+  let envURL = import.meta.env.VITE_DB_URL
+  
     let username = formData.get('usernameLogin')
     let password = formData.get('passwordLogin')
 
-    let URL = "http://localhost:5432/api/log-in/"
+    let URL = envURL + "/log-in/"
     try {
         let findUser = await fetch(URL, {
           method: "POST",

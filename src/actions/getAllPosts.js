@@ -1,6 +1,8 @@
 
 export default async function getAllPosts() {
-    let URL = "http://localhost:5432/api/posts/"
+  let envURL = import.meta.env.VITE_DB_URL
+
+  let URL = envURL + "/posts/"
     try {
         let allPosts = await fetch(URL, {
           method: "GET",

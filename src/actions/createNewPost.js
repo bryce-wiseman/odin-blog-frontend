@@ -1,10 +1,11 @@
 
 export default async function (formData) {
+    let envURL = import.meta.env.VITE_DB_URL
     let postTitle = formData.get('newPostTitle')
     let postBody = formData.get('newPostBody')
     let postAuthor = formData.get('newPostAuthor')
 
-    let URL = "http://localhost:5432/api/new-post/"
+    let URL = envURL + "/new-post/"
     try {
         let createPost = await fetch(URL, {
             method: "POST",

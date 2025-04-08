@@ -1,5 +1,6 @@
 export default async function getCurrentData() {
-    let URL = "http://localhost:5432/api/check-user/"
+  let envURL = import.meta.env.VITE_DB_URL
+    let URL = envURL + "/check-user/"
     try {
         let currentUser = await fetch(URL, {
           method: "GET",

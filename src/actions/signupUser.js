@@ -1,9 +1,10 @@
 export default async function (formData) {
+    let envURL = import.meta.env.VITE_DB_URL
     let email = formData.get('emailSignup')
     let username = formData.get('usernameSignup')
     let password = formData.get('passwordSignup')
     
-    let URL = "http://localhost:5432/api/sign-up/"
+    let URL = envURL + "/sign-up/"
     
     if(username && password && email) {
     try {

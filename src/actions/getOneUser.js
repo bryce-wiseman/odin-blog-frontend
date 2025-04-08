@@ -1,7 +1,8 @@
 
 export default async function getOneUser(id) {
+  let envURL = import.meta.env.VITE_DB_URL
     let idNum = id
-    let URL = "http://localhost:5432/api/users/" + idNum
+    let URL = envURL + "/users/" + idNum
     console.log(idNum)
     try {
         let findUser = await fetch(URL)
